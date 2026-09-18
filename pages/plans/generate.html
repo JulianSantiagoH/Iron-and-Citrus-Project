@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generar plan personalizado | Iron &amp; Citrus</title>
+</head>
+<body>
+  <header>
+    <a href="../../index.html">Iron &amp; Citrus</a>
+    <nav>
+      <ul>
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../foods/index.html">Alimentos</a></li>
+        <li><a href="index.html">Planes</a></li>
+        <li><a href="../community/forum.html">Comunidad</a></li>
+        <li><a href="../profile.html">Mi perfil</a></li>
+        <li><a href="../auth/login.html">Iniciar sesión</a></li>
+        <li><a href="../auth/register.html">Registrarse</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Generar plan personalizado</h1>
+      <p>Completa tus datos y objetivos para obtener un plan nutricional y de ejercicio generado por inteligencia artificial.</p>
+    </section>
+
+    <section>
+      <form>
+        <h2>Datos personales</h2>
+        <div>
+          <label for="age">Edad</label>
+          <input type="number" id="age" name="age">
+        </div>
+        <div>
+          <label for="weight">Peso (kg)</label>
+          <input type="number" id="weight" name="weight">
+        </div>
+        <div>
+          <label for="height">Altura (cm)</label>
+          <input type="number" id="height" name="height">
+        </div>
+        <div>
+          <label for="sex">Sexo</label>
+          <select id="sex" name="sex">
+            <option value="female">Femenino</option>
+            <option value="male">Masculino</option>
+            <option value="other">Otro</option>
+          </select>
+        </div>
+
+        <h2>Objetivos y preferencias</h2>
+        <div>
+          <label for="goal">Objetivo principal</label>
+          <select id="goal" name="goal">
+            <option value="fat-loss">Reducción de grasa</option>
+            <option value="muscle-gain">Aumento de masa muscular</option>
+            <option value="maintenance">Mantenimiento</option>
+            <option value="performance">Rendimiento deportivo</option>
+          </select>
+        </div>
+        <div>
+          <label for="activity">Nivel de actividad</label>
+          <select id="activity" name="activity">
+            <option value="sedentary">Sedentario</option>
+            <option value="light">Actividad ligera</option>
+            <option value="moderate">Actividad moderada</option>
+            <option value="intense">Actividad intensa</option>
+          </select>
+        </div>
+        <div>
+          <label for="diet">Preferencias o restricciones alimentarias</label>
+          <select id="diet" name="diet">
+            <option value="none">Sin restricciones</option>
+            <option value="vegetarian">Vegetariano</option>
+            <option value="vegan">Vegano</option>
+            <option value="gluten-free">Sin gluten</option>
+          </select>
+        </div>
+        <div>
+          <label for="plan-type">Tipo de plan</label>
+          <select id="plan-type" name="plan-type">
+            <option value="nutrition">Plan nutricional</option>
+            <option value="exercise">Rutina de ejercicio</option>
+            <option value="both">Ambos</option>
+          </select>
+        </div>
+        <button type="submit">Generar plan personalizado</button>
+      </form>
+    </section>
+
+    <p><a href="index.html">Volver a mis planes</a></p>
+  </main>
+
+  <footer>
+    <p>© 2026 Iron &amp; Citrus — Fitness, Nutrición y Bienestar.</p>
+  </footer>
+</body>
+</html>

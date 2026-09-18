@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de usuarios | Iron &amp; Citrus</title>
+</head>
+<body>
+  <header>
+    <a href="../../index.html">Iron &amp; Citrus</a>
+    <nav>
+      <ul>
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../foods/index.html">Alimentos</a></li>
+        <li><a href="../plans/index.html">Planes</a></li>
+        <li><a href="../community/forum.html">Comunidad</a></li>
+        <li><a href="../profile.html">Mi perfil</a></li>
+        <li><a href="../auth/login.html">Iniciar sesión</a></li>
+        <li><a href="../auth/register.html">Registrarse</a></li>
+      </ul>
+    </nav>
+    <nav>
+      <span>Administración</span>
+      <ul>
+        <li><a href="dashboard.html">Panel general</a></li>
+        <li><a href="users.html">Usuarios</a></li>
+        <li><a href="foods.html">Alimentos</a></li>
+        <li><a href="validations.html">Validaciones</a></li>
+        <li><a href="reports.html">Reportes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Gestión de usuarios</h1>
+      <form>
+        <div>
+          <label for="search">Buscar usuario</label>
+          <input type="search" id="search" name="search">
+        </div>
+        <div>
+          <label for="role">Filtrar por rol</label>
+          <select id="role" name="role">
+            <option value="">Todos los roles</option>
+            <option value="user">Usuario</option>
+            <option value="validator">Validador</option>
+            <option value="admin">Administrador</option>
+          </select>
+        </div>
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Listado de usuarios</h2>
+      <table>
+        <caption>Listado de usuarios de la plataforma</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo electrónico</th>
+            <th scope="col">Rol</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>María López</td>
+            <td>maria@example.com</td>
+            <td>Validador</td>
+            <td>—</td>
+            <td>Activo</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Suspender</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>NutriPlus S.A.</td>
+            <td>contacto@nutriplus.com</td>
+            <td>Usuario</td>
+            <td>NutriPlus S.A.</td>
+            <td>Activo</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Suspender</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Carlos Ruiz</td>
+            <td>carlos@example.com</td>
+            <td>Usuario</td>
+            <td>—</td>
+            <td>Suspendido</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Reactivar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <p><a href="dashboard.html">Volver al panel general</a></p>
+  </main>
+
+  <footer>
+    <p>© 2026 Iron &amp; Citrus — Fitness, Nutrición y Bienestar.</p>
+  </footer>
+</body>
+</html>
