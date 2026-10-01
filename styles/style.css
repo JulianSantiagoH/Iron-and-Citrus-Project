@@ -1,0 +1,824 @@
+/* ==========================================================================
+   Iron & Citrus — Sistema de estilos global
+   Fase visual (HTML5 + CSS3). Sin JavaScript, sin frameworks.
+   Paleta derivada del logo: naranja cítrico, verde hoja y charcoal "hierro".
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables globales
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta principal (derivada del logo) */
+  --color-primary: #f97700;        /* naranja cítrico */
+  --color-primary-dark: #d96a00;   /* naranja oscuro (hover) */
+  --color-primary-light: #ffb066;  /* naranja suave */
+  --color-secondary: #449714;      /* verde hoja */
+  --color-secondary-dark: #347510; /* verde oscuro */
+  --color-secondary-light: #eef7e6;/* verde suave */
+  --color-ink: #1b222a;            /* charcoal "hierro" */
+  --color-ink-soft: #2e3944;
+
+  /* Fondos */
+  --color-bg: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-surface-alt: #eef1f4;
+
+  /* Texto */
+  --color-text: #1b222a;
+  --color-text-secondary: #5c6b7a;
+  --color-text-inverse: #ffffff;
+
+  /* Bordes */
+  --color-border: #e1e6eb;
+  --color-border-strong: #c9d2da;
+
+  /* Estados */
+  --color-success: #449714;
+  --color-success-bg: #eef7e6;
+  --color-warning: #d9890a;
+  --color-warning-bg: #fdf3e2;
+  --color-error: #d64545;
+  --color-error-bg: #fbe7e7;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(20, 28, 40, .06);
+  --shadow-md: 0 4px 12px rgba(20, 28, 40, .08);
+  --shadow-lg: 0 12px 28px rgba(20, 28, 40, .14);
+
+  /* Radios de borde */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 999px;
+
+  /* Espaciado reutilizable */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  /* Tipografía */
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-small: .875rem;
+  --fs-base: 1rem;
+  --fs-medium: 1.125rem;
+  --fs-large: 1.375rem;
+  --fs-xlarge: 1.75rem;
+  --fs-xxlarge: 2.25rem;
+  --fs-hero: 2.75rem;
+
+  /* Layout */
+  --container-max: 1160px;
+  --header-height: 72px;
+  --transition: .18s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset y base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------------------------------
+   3. Tipografía
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 var(--space-4);
+  line-height: 1.25;
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--fs-xxlarge);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--fs-xlarge);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--fs-large);
+  color: var(--color-ink-soft);
+}
+
+p {
+  margin: 0 0 var(--space-4);
+}
+
+small {
+  font-size: var(--fs-small);
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   4. Enlaces
+   -------------------------------------------------------------------------- */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Imágenes
+   -------------------------------------------------------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   6. Listas
+   -------------------------------------------------------------------------- */
+ul,
+ol {
+  margin: 0 0 var(--space-4);
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: var(--space-1);
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Contenedores y layout
+   -------------------------------------------------------------------------- */
+main {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5) var(--space-7);
+}
+
+main > section + section,
+main > section + article,
+main > article + section {
+  margin-top: var(--space-6);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.section {
+  padding: var(--space-7) 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Encabezado y navegación
+   -------------------------------------------------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  min-height: var(--header-height);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-large);
+  font-weight: 700;
+  color: var(--color-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header nav a {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+header nav a:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+header nav a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+header nav span {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+/* --------------------------------------------------------------------------
+   9. Pie de página
+   -------------------------------------------------------------------------- */
+footer {
+  padding: var(--space-5) var(--space-4);
+  background: var(--color-ink);
+  color: var(--color-text-inverse);
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  color: var(--color-text-inverse);
+}
+
+/* --------------------------------------------------------------------------
+   10. Botones
+   -------------------------------------------------------------------------- */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: .65rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: var(--fs-base);
+  font-weight: 600;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: background-color var(--transition),
+              color var(--transition),
+              border-color var(--transition),
+              transform var(--transition),
+              box-shadow var(--transition);
+}
+
+button[type="submit"] {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+button[type="submit"]:hover {
+  background-color: var(--color-primary-dark);
+}
+
+button[type="button"],
+button[type="reset"] {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+button[type="button"]:hover,
+button[type="reset"]:hover {
+  background-color: var(--color-surface-alt);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* Componentes de botón reutilizables (disponibles para fases posteriores) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: .65rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-inverse);
+}
+
+.btn--secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-strong);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+/* --------------------------------------------------------------------------
+   11. Formularios
+   -------------------------------------------------------------------------- */
+section > form,
+main > section > form {
+  max-width: 640px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: .65rem .8rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--fs-base);
+  line-height: 1.4;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9aa7b3;
+}
+
+select {
+  cursor: pointer;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(249, 119, 0, .18);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: var(--color-surface-alt);
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   12. Tablas
+   -------------------------------------------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+caption {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-weight: 700;
+  color: var(--color-ink);
+  background-color: var(--color-surface-alt);
+  border-bottom: 1px solid var(--color-border);
+}
+
+th,
+td {
+  padding: .75rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: 600;
+  color: var(--color-ink-soft);
+  background-color: var(--color-surface-alt);
+}
+
+tbody tr:last-child td,
+tbody tr:last-child th {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #fafbfc;
+}
+
+tfoot th,
+tfoot td {
+  background-color: var(--color-surface-alt);
+  font-weight: 700;
+  color: var(--color-ink);
+  border-top: 1px solid var(--color-border);
+}
+
+/* --------------------------------------------------------------------------
+   13. Tarjetas
+   -------------------------------------------------------------------------- */
+article {
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+main article + article,
+main section article + article {
+  margin-top: var(--space-4);
+}
+
+article header h1,
+article header h2,
+article header h3 {
+  margin-bottom: var(--space-2);
+}
+
+/* Commentarios anidados dentro de una publicación */
+article article {
+  padding: var(--space-4);
+  background-color: var(--color-surface-alt);
+  border: none;
+  box-shadow: none;
+}
+
+/* Componente reutilizable .card (disponible para fases posteriores) */
+.card {
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+aside {
+  margin-top: var(--space-5);
+  padding: var(--space-4);
+  background-color: var(--color-surface-alt);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+aside h2 {
+  font-size: var(--fs-large);
+}
+
+/* --------------------------------------------------------------------------
+   14. Badges y estados (reutilizables)
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-block;
+  padding: .25rem .75rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: 1.4;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-secondary);
+}
+
+.badge--success {
+  background-color: var(--color-success-bg);
+  color: var(--color-secondary-dark);
+}
+
+.badge--warning {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.badge--error {
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+/* --------------------------------------------------------------------------
+   15. Mensajes de estado (reutilizables)
+   -------------------------------------------------------------------------- */
+.message {
+  padding: var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+}
+
+.message--success {
+  background-color: var(--color-success-bg);
+  color: var(--color-secondary-dark);
+  border-color: var(--color-success);
+}
+
+.message--warning {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+  border-color: var(--color-warning);
+}
+
+.message--error {
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+/* --------------------------------------------------------------------------
+   16. Definición de listas (resúmenes: planes, dashboard, perfil)
+   -------------------------------------------------------------------------- */
+dl {
+  margin: var(--space-4) 0 var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+dt {
+  margin-top: var(--space-3);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+dt:first-child {
+  margin-top: 0;
+}
+
+dd {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-medium);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   17. Áreas específicas (estilos generales aplicables a cada módulo)
+
+   Autenticación · Alimentos/productos · Planes · Comunidad · Administración · Perfil
+   Base visual común; la personalización página por página se hará en una fase
+   posterior.
+   -------------------------------------------------------------------------- */
+
+/* Autenticación: formularios de login/registro más compactos */
+main > section:has(> form) {
+  max-width: 560px;
+}
+
+/* Alimentos/productos: tarjetas de resultados y ficha nutricional como bloques */
+article ul {
+  margin-bottom: var(--space-3);
+}
+
+/* Planes: resaltar subtotales y resúmenes */
+tfoot {
+  font-weight: 700;
+}
+
+/* Comunidad: publicación destacada */
+main > article {
+  margin-bottom: var(--space-6);
+}
+
+/* Administración: tablas de gestión */
+main section:has(> table) form {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-4);
+}
+
+main section:has(> table) form > div {
+  flex: 1 1 220px;
+}
+
+/* Perfil: bloques de edición separados por secciones */
+
+/* --------------------------------------------------------------------------
+   18. Accesibilidad
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   19. Responsive: escritorio (por defecto) · tablet · móvil
+   -------------------------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 900px) {
+  header {
+    min-height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav ul {
+    width: 100%;
+  }
+
+  dl {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  h1 {
+    font-size: var(--fs-xlarge);
+  }
+
+  main {
+    padding: var(--space-5);
+  }
+}
+
+/* Móvil */
+@media (max-width: 600px) {
+  header {
+    padding: var(--space-3);
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  header nav a {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  main {
+    padding: var(--space-4);
+  }
+
+  h1 {
+    font-size: var(--fs-xlarge);
+  }
+
+  h2 {
+    font-size: var(--fs-large);
+  }
+
+  article,
+  form,
+  dl {
+    padding: var(--space-4);
+  }
+
+  form {
+    gap: var(--space-3);
+  }
+
+  th,
+  td {
+    padding: .5rem .6rem;
+    font-size: var(--fs-small);
+    white-space: nowrap;
+  }
+
+  button {
+    width: 100%;
+  }
+}
